@@ -1,37 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OKR Übersicht · Medumio Webteam</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --teal: #209795;
+    --teal-deep: #16706f;
     --teal-light: #e8f5f5;
-    --teal-mid: rgba(32,151,149,.12);
-    --teal-border: rgba(32,151,149,.25);
-    --text: #1a2e2e;
-    --text-soft: #4a6666;
-    --text-muted: #8aabab;
-    --bg: #f4fafa;
+    --teal-mid: rgba(32,151,149,.10);
+    --teal-border: rgba(32,151,149,.22);
+    --text: #16282a;
+    --text-soft: #4d6668;
+    --text-muted: #8fa8a9;
+    --bg: #eef7f6;
     --card: #ffffff;
-    --border: #ddeaea;
+    --border: #dceaea;
     --orange: #E07A20;
-    --orange-light: rgba(224,122,32,.1);
+    --orange-light: rgba(224,122,32,.09);
     --green-check: #1a9e5c;
-    --green-light: rgba(26,158,92,.1);
   }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg);
+    background:
+      radial-gradient(1200px 500px at 15% -10%, rgba(32,151,149,.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(224,122,32,.06), transparent 55%),
+      var(--bg);
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 36px 24px 48px;
+    padding: 48px 24px 56px;
   }
 
   .page {
-    max-width: 860px;
+    max-width: 880px;
     width: 100%;
   }
 
@@ -40,67 +47,88 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 28px;
+    margin-bottom: 34px;
     gap: 16px;
   }
 
   .eyebrow {
-    font-size: .6rem;
-    letter-spacing: .18em;
+    font-size: .62rem;
+    letter-spacing: .2em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: var(--teal-deep);
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 16px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--teal);
+    display: inline-block;
   }
 
   h1 {
-    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
     font-weight: 800;
     color: var(--text);
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -.01em;
   }
 
   .date {
-    font-size: .75rem;
+    font-size: .78rem;
     color: var(--text-muted);
     white-space: nowrap;
+    padding-bottom: 4px;
   }
 
   /* Quarter sections */
-  .quarter { margin-bottom: 32px; }
+  .quarter { margin-bottom: 36px; }
+  .quarter:last-of-type { margin-bottom: 26px; }
 
   .quarter-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .quarter-label {
-    font-size: .58rem;
+    font-size: .6rem;
     letter-spacing: .16em;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 4px 11px;
+    padding: 5px 12px;
     border-radius: 20px;
   }
 
   .q2-label { background: var(--orange-light); color: var(--orange); }
-  .q3-label { background: var(--teal-mid); color: var(--teal); }
+  .q3-label { background: var(--teal-mid); color: var(--teal-deep); }
 
   .quarter-rule {
     flex: 1;
     height: 1px;
-    background: var(--border);
+    background: linear-gradient(to right, var(--border), transparent);
   }
 
   /* Objective cards */
   .obj-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    margin-bottom: 10px;
+    border-radius: 16px;
+    margin-bottom: 12px;
     overflow: hidden;
+    box-shadow: 0 1px 2px rgba(22,40,42,.04);
+    transition: box-shadow .2s ease;
+  }
+
+  .obj-card:hover {
+    box-shadow: 0 4px 16px rgba(22,40,42,.07);
   }
 
   .obj-card:last-child { margin-bottom: 0; }
@@ -108,35 +136,44 @@
   .obj-header {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 16px 20px;
+    gap: 14px;
+    padding: 18px 22px;
   }
 
   .obj-num {
-    font-size: .6rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .08em;
     color: var(--text-muted);
     white-space: nowrap;
-    padding-top: 2px;
+    padding-top: 3px;
     min-width: 22px;
   }
 
   .obj-text {
-    font-size: .88rem;
+    font-size: .92rem;
     font-weight: 600;
     color: var(--text);
-    line-height: 1.45;
+    line-height: 1.5;
     flex: 1;
   }
 
   .check {
-    font-size: 1rem;
+    font-size: .95rem;
     line-height: 1;
     flex-shrink: 0;
-    margin-top: 1px;
+    margin-top: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
   }
+
+  .check--orange { background: var(--orange); }
+  .check--green { background: var(--green-check); }
 
   /* Q2 done state */
   .obj-card--done-orange { border-left: 3px solid var(--orange); }
@@ -145,40 +182,45 @@
   /* Q3 KR list */
   .kr-list {
     border-top: 1px solid var(--border);
-    padding: 12px 20px 14px 20px;
-    background: var(--bg);
+    padding: 14px 22px 16px 22px;
+    background: linear-gradient(to bottom, var(--teal-mid), transparent 40%);
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 9px;
   }
 
   .kr {
     display: flex;
     gap: 10px;
-    font-size: .78rem;
+    font-size: .8rem;
     color: var(--text-soft);
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .kr-id {
-    font-size: .63rem;
+    font-size: .64rem;
     font-weight: 700;
-    color: var(--teal);
+    color: var(--teal-deep);
+    background: var(--teal-mid);
+    padding: 1px 7px;
+    border-radius: 6px;
     white-space: nowrap;
-    padding-top: 1px;
-    min-width: 32px;
+    height: fit-content;
+    margin-top: 1px;
   }
 
   .obj-card--q3 { border-left: 3px solid var(--teal); }
 
   .footer {
-    margin-top: 12px;
-    font-size: .68rem;
+    margin-top: 16px;
+    font-size: .7rem;
     color: var(--text-muted);
     text-align: center;
+    letter-spacing: .02em;
   }
 </style>
-
+</head>
+<body>
 <div class="page">
 
   <div class="header">
@@ -200,7 +242,7 @@
       <div class="obj-header">
         <span class="obj-num">O1</span>
         <span class="obj-text">Alle Event-Teilnehmer sind sich über die Vorteile unserer digitalen Produkte bewusst</span>
-        <span class="check" style="color:var(--orange);">✓</span>
+        <span class="check check--orange">✓</span>
       </div>
     </div>
 
@@ -208,7 +250,7 @@
       <div class="obj-header">
         <span class="obj-num">O2</span>
         <span class="obj-text">Das Webteam verbessert seine Effizienz durch AI</span>
-        <span class="check" style="color:var(--green-check);">✓</span>
+        <span class="check check--green">✓</span>
       </div>
     </div>
   </div>
@@ -258,3 +300,5 @@
 
   <div class="footer">Medumio // Viktilabs · Webteam OKR Review 2026</div>
 </div>
+</body>
+</html>
