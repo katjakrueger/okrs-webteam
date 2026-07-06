@@ -1,0 +1,260 @@
+
+<title>OKR Übersicht · Medumio Webteam</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #209795;
+    --teal-light: #e8f5f5;
+    --teal-mid: rgba(32,151,149,.12);
+    --teal-border: rgba(32,151,149,.25);
+    --text: #1a2e2e;
+    --text-soft: #4a6666;
+    --text-muted: #8aabab;
+    --bg: #f4fafa;
+    --card: #ffffff;
+    --border: #ddeaea;
+    --orange: #E07A20;
+    --orange-light: rgba(224,122,32,.1);
+    --green-check: #1a9e5c;
+    --green-light: rgba(26,158,92,.1);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 36px 24px 48px;
+  }
+
+  .page {
+    max-width: 860px;
+    width: 100%;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 28px;
+    gap: 16px;
+  }
+
+  .eyebrow {
+    font-size: .6rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .date {
+    font-size: .75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* Quarter sections */
+  .quarter { margin-bottom: 32px; }
+
+  .quarter-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .quarter-label {
+    font-size: .58rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 11px;
+    border-radius: 20px;
+  }
+
+  .q2-label { background: var(--orange-light); color: var(--orange); }
+  .q3-label { background: var(--teal-mid); color: var(--teal); }
+
+  .quarter-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Objective cards */
+  .obj-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .obj-card:last-child { margin-bottom: 0; }
+
+  .obj-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .obj-num {
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 22px;
+  }
+
+  .obj-text {
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  .check {
+    font-size: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Q2 done state */
+  .obj-card--done-orange { border-left: 3px solid var(--orange); }
+  .obj-card--done-green  { border-left: 3px solid var(--green-check); }
+
+  /* Q3 KR list */
+  .kr-list {
+    border-top: 1px solid var(--border);
+    padding: 12px 20px 14px 20px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .kr {
+    display: flex;
+    gap: 10px;
+    font-size: .78rem;
+    color: var(--text-soft);
+    line-height: 1.45;
+  }
+
+  .kr-id {
+    font-size: .63rem;
+    font-weight: 700;
+    color: var(--teal);
+    white-space: nowrap;
+    padding-top: 1px;
+    min-width: 32px;
+  }
+
+  .obj-card--q3 { border-left: 3px solid var(--teal); }
+
+  .footer {
+    margin-top: 12px;
+    font-size: .68rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+</style>
+
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="eyebrow">Medumio Webteam</div>
+      <h1>OKR Übersicht 2026</h1>
+    </div>
+    <div class="date">Stand: 30. Juni 2026</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quarter">
+    <div class="quarter-header">
+      <span class="quarter-label q2-label">Q2 · Abschluss</span>
+      <div class="quarter-rule"></div>
+    </div>
+
+    <div class="obj-card obj-card--done-orange">
+      <div class="obj-header">
+        <span class="obj-num">O1</span>
+        <span class="obj-text">Alle Event-Teilnehmer sind sich über die Vorteile unserer digitalen Produkte bewusst</span>
+        <span class="check" style="color:var(--orange);">✓</span>
+      </div>
+    </div>
+
+    <div class="obj-card obj-card--done-green">
+      <div class="obj-header">
+        <span class="obj-num">O2</span>
+        <span class="obj-text">Das Webteam verbessert seine Effizienz durch AI</span>
+        <span class="check" style="color:var(--green-check);">✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quarter">
+    <div class="quarter-header">
+      <span class="quarter-label q3-label">Q3 · Planung</span>
+      <div class="quarter-rule"></div>
+    </div>
+
+    <div class="obj-card obj-card--q3">
+      <div class="obj-header">
+        <span class="obj-num">O1</span>
+        <span class="obj-text">Die Qualität der Kongress-Auslieferung steigt messbar — unterstützt durch KI</span>
+      </div>
+      <div class="kr-list">
+        <div class="kr"><span class="kr-id">KR 1.1</span><span>Ein Deep-Check-Prozess ist definiert und pilotiert, der über das hinausgeht, was NotebookLM kann</span></div>
+        <div class="kr"><span class="kr-id">KR 1.2</span><span>Für jeden Portal-Typ liegt eine abgestimmte Qualitäts-Checkliste vor, die bei jeder Kongress-Auslieferung verbindlich genutzt wird</span></div>
+        <div class="kr"><span class="kr-id">KR 1.3</span><span>Eine Baseline für Fehler- und Nachbesserungsquote ist erstmals erhoben — Grundlage für messbare Verbesserung in Q4</span></div>
+      </div>
+    </div>
+
+    <div class="obj-card obj-card--q3">
+      <div class="obj-header">
+        <span class="obj-num">O2</span>
+        <span class="obj-text">Der Zeitaufwand pro Event-Vorbereitung sinkt durch KI-gestützte Tools & Workflows</span>
+      </div>
+      <div class="kr-list">
+        <div class="kr"><span class="kr-id">KR 2.1</span><span>DCIIs konstant unter 2 h — 100 % erreicht + teaminterne Auswertung was die Lücke war abgeschlossen</span></div>
+        <div class="kr"><span class="kr-id">KR 2.2</span><span>Neues Tool-Setup (Claude Code o.ä.) ist evaluiert und ein klarer Rolloutplan steht</span></div>
+        <div class="kr"><span class="kr-id">KR 2.3</span><span>Baseline: Durchschnittliche Vorbereitungszeit pro Event-Typ ist erstmals dokumentiert — Grundlage für Q4-Ziele</span></div>
+      </div>
+    </div>
+
+    <div class="obj-card obj-card--q3">
+      <div class="obj-header">
+        <span class="obj-num">O3</span>
+        <span class="obj-text">Die Angebotssektion der Viktilabs-Salespages wird pro Portal nur noch an einer Stelle gepflegt — Änderungen sind sofort auf allen Sales Pages sichtbar</span>
+      </div>
+      <div class="kr-list">
+        <div class="kr"><span class="kr-id">KR 3.1</span><span>Für jedes Supplement existiert genau eine zentrale Angebotssektion, die alle zugehörigen Sales Pages automatisch befüllt — entweder über ein globales Element oder einen KI-Agenten</span></div>
+        <div class="kr"><span class="kr-id">KR 3.2</span><span>Eine Preisänderung wurde testweise auf einem Supplement durchgeführt und hat sich ohne manuelle Einzelarbeit auf allen zugehörigen Sales Pages korrekt aktualisiert</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Medumio // Viktilabs · Webteam OKR Review 2026</div>
+</div>
